@@ -9,7 +9,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Models
 			return new IdentityError()
 			{
 				Code = "PasswordTooShort",
-				Description = $"Parola en az{length} karakter  olmalıdır"
+				Description = $"Parola en az{length} karakter olmalıdır"
 			};
 		}
 		public override IdentityError PasswordRequiresUpper()
