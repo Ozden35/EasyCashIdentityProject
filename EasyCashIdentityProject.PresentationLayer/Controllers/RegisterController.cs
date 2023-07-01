@@ -7,6 +7,7 @@ using MimeKit;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
+
     public class RegisterController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
