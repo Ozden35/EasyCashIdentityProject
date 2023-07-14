@@ -28,6 +28,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 			var user = await _userManager.FindByEmailAsync(confirmMailViewModel.Mail);
 			if(user.ConfirmCode==confirmMailViewModel.ConfirmCode)
 			{
+				user.EmailConfirmed = true;
 				return RedirectToAction("Index","MyProfile");
 			}
 			return View();
