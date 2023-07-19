@@ -22,7 +22,18 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         [HttpPost]
         public async Task <IActionResult> Index(LoginViewModel LoginViewModel)
         {
-
+            var result = await _signInManager.PasswordSignInAsync
+                (LoginViewModel.Username, LoginViewModel.Password, false, true);
+            if(result.Succeeded)
+            {
+                var user = await _userManager.FindByNameAsync(LoginViewModel.Username);
+                if (user.EmailConfirmed == true)
+                {
+                    return RedirectToAction("Index", "MyProfile");
+                }
+                //Lütfen mail adresinizi onaylayın
+            }
+            //kullanıcı adı veya şifre hatalı
             return View();
         }
     }
